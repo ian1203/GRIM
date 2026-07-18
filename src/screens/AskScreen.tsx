@@ -93,17 +93,17 @@ export function AskScreen() {
       <section aria-labelledby="ask-title">
         <header className="mb-6">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-            Asesor ejecutivo
+            Conversación estratégica
           </p>
           <h1
             id="ask-title"
             className="mt-2 text-[32px] font-bold leading-10 tracking-[-0.025em]"
           >
-            Preguntar
+            Profundiza donde la decisión todavía no es clara.
           </h1>
           <p className="mt-2 text-[15px] text-text-secondary">
-            Profundiza en una decisión, contrasta evidencia o explora un
-            escenario específico.
+            Contrasta evidencia o explora un escenario específico a partir del
+            contexto que GRIM ya preparó.
           </p>
         </header>
         <div className="space-y-5">

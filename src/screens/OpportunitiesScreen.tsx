@@ -20,8 +20,8 @@ export function OpportunitiesScreen() {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader
-        eyebrow="Oportunidades"
-        title="Valor que merece una decisión"
+        eyebrow="Valor recuperable"
+        title="Hoy una oportunidad puede recuperar más valor que cualquier otra."
         description={`${OPPORTUNITIES.length} oportunidades demostrativas ordenadas por impacto esperado.`}
       />
       <div className="mb-6 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap">
@@ -46,6 +46,20 @@ export function OpportunitiesScreen() {
             key={item.id}
             opportunity={item}
             showPriorityReason={item.id === "recover-clients"}
+            continuity={
+              item.id === "recover-clients"
+                ? {
+                    memory:
+                      "Surgió de clientes que GRIM identificó antes de esta revisión.",
+                    related: [
+                      "Clientes prioritarios",
+                      "Briefing de hoy",
+                      "Acción de recuperación",
+                    ],
+                    question: "¿Por qué GRIM prioriza esta oportunidad?",
+                  }
+                : undefined
+            }
           />
         ))}
       </div>

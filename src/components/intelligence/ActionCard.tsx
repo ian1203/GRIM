@@ -5,15 +5,23 @@ import { Card } from "@/components/ui/Card"
 import { ConfidenceIndicator } from "./ConfidenceIndicator"
 import { ImpactValue } from "./ImpactValue"
 import { PriorityBadge } from "./PriorityBadge"
+import { DecisionContinuity } from "./DecisionContinuity"
 
 export function ActionCard({
   action,
   prepared,
   onPrepare,
+  continuity,
 }: {
   action: RecommendedAction
   prepared: boolean
   onPrepare: () => void
+  continuity?: {
+    memory: string
+    relationshipLabel: string
+    related: string[]
+    question: string
+  }
 }) {
   return (
     <Card
@@ -57,6 +65,7 @@ export function ActionCard({
           </Button>
         </div>
       </div>
+      {continuity && <DecisionContinuity {...continuity} />}
     </Card>
   )
 }

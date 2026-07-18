@@ -16,8 +16,8 @@ export function ActionsScreen() {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader
-        eyebrow="Acciones"
-        title="Siguientes pasos recomendados"
+        eyebrow="Plan de decisión"
+        title="Estas decisiones pueden cambiar el resultado esperado del negocio."
         description={
           <>
             <strong className="font-semibold text-text-primary">
@@ -49,6 +49,17 @@ export function ActionsScreen() {
             action={action}
             prepared={prepared.has(action.id)}
             onPrepare={() => toggle(action.id)}
+            continuity={
+              action.id === 1
+                ? {
+                    memory:
+                      "Esta acción deriva de tres señales detectadas previamente.",
+                    relationshipLabel: "Impacta directamente",
+                    related: ["Inicio", "Clientes", "Pronóstico"],
+                    question: "¿Qué resultado puede cambiar?",
+                  }
+                : undefined
+            }
           />
         ))}
       </div>

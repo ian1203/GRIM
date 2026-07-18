@@ -6,13 +6,20 @@ import { Card } from "@/components/ui/Card"
 import { ConfidenceIndicator } from "./ConfidenceIndicator"
 import { ImpactValue } from "./ImpactValue"
 import { PriorityBadge } from "./PriorityBadge"
+import { DecisionContinuity } from "./DecisionContinuity"
 
 export function OpportunityCard({
   opportunity,
   showPriorityReason = false,
+  continuity,
 }: {
   opportunity: Opportunity
   showPriorityReason?: boolean
+  continuity?: {
+    memory: string
+    related: string[]
+    question: string
+  }
 }) {
   const [prepared, setPrepared] = useState(false)
   return (
@@ -34,7 +41,7 @@ export function OpportunityCard({
         </div>
         <div className="shrink-0 sm:text-right">
           <ImpactValue value={opportunity.impact} tone="positive" />
-          <p className="mt-1 text-xs text-text-muted">Impacto esperado</p>
+          <p className="mt-1 text-xs text-text-muted">Valor recuperable</p>
         </div>
       </div>
       {showPriorityReason && (
@@ -52,11 +59,12 @@ export function OpportunityCard({
           </p>
         </aside>
       )}
+      {continuity && <DecisionContinuity {...continuity} />}
       <div className="mt-5 flex flex-col gap-4 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap gap-4">
           <ConfidenceIndicator value={opportunity.confidence} />
           <span className="text-xs text-text-secondary">
-            <strong>Horizonte:</strong> {opportunity.time}
+            <strong>Ventana de decisión:</strong> {opportunity.time}
           </span>
         </div>
         <div className="flex flex-col gap-3 sm:items-end">
@@ -68,7 +76,7 @@ export function OpportunityCard({
             variant={prepared ? "ghost" : "secondary"}
           >
             <ClipboardPlus aria-hidden="true" size={16} />
-            {prepared ? "Tarea preparada" : "Preparar tarea"}
+            {prepared ? "Decisión iniciada" : "Comenzar"}
           </Button>
         </div>
       </div>

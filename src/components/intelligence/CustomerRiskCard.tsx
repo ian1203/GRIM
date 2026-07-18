@@ -4,13 +4,20 @@ import type { Customer } from "@/types"
 import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
 import { PriorityBadge } from "./PriorityBadge"
+import { DecisionContinuity } from "./DecisionContinuity"
 
 export function CustomerRiskCard({
   customer,
   showGrimReading = false,
+  continuity,
 }: {
   customer: Customer
   showGrimReading?: boolean
+  continuity?: {
+    memory: string
+    related: string[]
+    question: string
+  }
 }) {
   const [prepared, setPrepared] = useState(false)
   return (
@@ -73,6 +80,7 @@ export function CustomerRiskCard({
           </p>
         </aside>
       )}
+      {continuity && <DecisionContinuity {...continuity} />}
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[13px] font-medium text-text-primary">
           {customer.recommendation}
@@ -83,7 +91,7 @@ export function CustomerRiskCard({
           variant={prepared ? "ghost" : "secondary"}
         >
           <Contact aria-hidden="true" size={16} />
-          {prepared ? "Contacto preparado" : "Preparar contacto"}
+          {prepared ? "Recuperación iniciada" : "Recuperar cliente"}
         </Button>
       </div>
     </Card>

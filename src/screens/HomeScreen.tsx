@@ -36,6 +36,29 @@ export function HomeScreen({
         </p>
       </header>
 
+      <section
+        aria-label="Estado del briefing de hoy"
+        className="mb-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-y border-border py-3 text-xs sm:mb-10"
+      >
+        <p className="font-semibold text-text-primary">Estado del briefing</p>
+        <dl className="flex flex-wrap gap-x-5 gap-y-2 text-text-secondary">
+          {[
+            ["Señales relevantes", HOME_SIGNALS.length],
+            ["Crítica", 1],
+            ["Oportunidad", 1],
+            ["Decisión en revisión", 1],
+            ["En segundo plano", remainingSignals],
+          ].map(([label, value]) => (
+            <div key={label} className="flex items-baseline gap-1.5">
+              <dd className="font-semibold tabular-nums text-text-primary">
+                {value}
+              </dd>
+              <dt>{label}</dt>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       <section aria-labelledby="primary-decision-title">
         <h2 id="primary-decision-title" className="sr-only">
           Decisión principal

@@ -5,8 +5,8 @@ export function CustomersScreen() {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader
-        eyebrow="Clientes"
-        title="Clientes que requieren contexto"
+        eyebrow="Riesgo comercial"
+        title="Hoy un cliente concentra la mayor parte del riesgo comercial."
         description={
           <>
             Solo los{" "}
@@ -23,6 +23,19 @@ export function CustomersScreen() {
             key={customer.id}
             customer={customer}
             showGrimReading={customer.id === "gcn"}
+            continuity={
+              customer.id === "gcn"
+                ? {
+                    memory: "Detectado durante el Briefing Ejecutivo.",
+                    related: [
+                      "Producto X",
+                      "Pronóstico esperado",
+                      "Acción prioritaria",
+                    ],
+                    question: "¿Por qué atenderlo ahora?",
+                  }
+                : undefined
+            }
           />
         ))}
       </div>

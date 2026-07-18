@@ -13,9 +13,9 @@ export function ConnectorsScreen() {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader
-        eyebrow="Conectores"
-        title="Fuentes de contexto"
-        description="Estado demostrativo de las fuentes que pueden alimentar las recomendaciones de GRIM."
+        eyebrow="Calidad de contexto"
+        title="Tres fuentes sostienen hoy las recomendaciones de GRIM."
+        description="Fuentes de contexto conectadas y disponibles para esta demostración."
       />
       <p className="mb-8 border-l-2 border-border pl-3 text-[13px] leading-5 text-text-muted">
         La precisión de las recomendaciones depende de la vigencia y calidad de

@@ -2,6 +2,7 @@ import { CalendarClock, ShieldCheck } from "lucide-react"
 import { FORECAST_SCENARIOS } from "@/data/mockData"
 import { ForecastScenarioCard } from "@/components/intelligence/ForecastScenarioCard"
 import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
+import { DecisionContinuity } from "@/components/intelligence/DecisionContinuity"
 import { RecommendationCard } from "@/components/intelligence/RecommendationCard"
 import { Card } from "@/components/ui/Card"
 import { PageHeader } from "@/components/ui/PageHeader"
@@ -10,9 +11,9 @@ export function ForecastScreen() {
   return (
     <div className="mx-auto max-w-4xl">
       <PageHeader
-        eyebrow="Pronóstico"
-        title="Escenarios de ingreso"
-        description="Una estimación orientativa basada en los datos mock disponibles; no representa una garantía de resultado."
+        eyebrow="Resultado probable"
+        title="El escenario esperado depende de decisiones que todavía pueden cambiar."
+        description="GRIM conecta las señales actuales con sus posibles consecuencias; el resultado sigue siendo una estimación."
         meta={
           <span className="inline-flex items-center gap-2 text-xs font-medium text-text-muted">
             <CalendarClock aria-hidden="true" size={15} />
@@ -27,6 +28,14 @@ export function ForecastScreen() {
           "Recuperar clientes y validar reabastecimiento son las decisiones con mayor capacidad de mejorar el resultado.",
         ]}
       </GrimInterpretation>
+      <Card className="mb-4 p-5">
+        <DecisionContinuity
+          memory="Si estas decisiones cambian, el pronóstico se actualizará."
+          relationshipLabel="Este escenario depende principalmente de"
+          related={["Producto X", "Grupo Comercial Norte"]}
+          question="¿Qué tendría que cambiar para mejorar este escenario?"
+        />
+      </Card>
       <div className="grid gap-3 md:grid-cols-3">
         {FORECAST_SCENARIOS.map((scenario) => (
           <ForecastScenarioCard key={scenario.id} scenario={scenario} />
@@ -40,14 +49,16 @@ export function ForecastScreen() {
               className="text-primary"
               size={18}
             />
-            <h2 className="text-base font-semibold">Confianza media</h2>
+            <h2 className="text-base font-semibold">
+              Evidencia del escenario
+            </h2>
           </div>
           <p className="mt-2 text-[13px] leading-5 text-text-secondary">
             Las señales de ventas e inventario son consistentes. Falta confirmar
             el comportamiento de cuatro cuentas B2B.
           </p>
           <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-text-muted">
-            Rango esperado
+            Resultado plausible
           </p>
           <p className="mt-1 text-xl font-bold tabular-nums text-text-primary">
             $326K–$378K

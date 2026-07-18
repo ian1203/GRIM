@@ -2,13 +2,20 @@ import type { ProductSignal } from "@/types"
 import { Badge } from "@/components/ui/Badge"
 import { Card } from "@/components/ui/Card"
 import { Sparkline } from "./Sparkline"
+import { DecisionContinuity } from "./DecisionContinuity"
 
 export function ProductSignalCard({
   product,
   showGrimReading = false,
+  continuity,
 }: {
   product: ProductSignal
   showGrimReading?: boolean
+  continuity?: {
+    memory: string
+    related: string[]
+    question: string
+  }
 }) {
   const config = {
     growing: { label: "En crecimiento", tone: "success" as const },
@@ -82,6 +89,7 @@ export function ProductSignalCard({
           </p>
         </aside>
       )}
+      {continuity && <DecisionContinuity {...continuity} />}
       <p className="mt-4 text-[13px] text-text-secondary">
         <strong className="text-text-primary">Recomendación:</strong>{" "}
         {product.recommendation}

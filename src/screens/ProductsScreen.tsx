@@ -24,8 +24,8 @@ export function ProductsScreen() {
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader
-        eyebrow="Productos"
-        title="Señales de producto"
+        eyebrow="Cambio estructural"
+        title="Un producto cambió el comportamiento esperado del negocio."
         description="Productos que requieren una decisión, no el catálogo completo."
       />
       <div className="mb-6 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap">
@@ -50,6 +50,20 @@ export function ProductsScreen() {
             key={item.id}
             product={item}
             showGrimReading={item.id === "product-x"}
+            continuity={
+              item.id === "product-x"
+                ? {
+                    memory:
+                      "Esta señal fue promovida desde el análisis matutino.",
+                    related: [
+                      "Grupo Comercial Norte",
+                      "Escenario esperado",
+                      "Acción #1",
+                    ],
+                    question: "¿Qué explica este cambio?",
+                  }
+                : undefined
+            }
           />
         ))}
       </div>

@@ -59,6 +59,10 @@ La IA no usa urgencia artificial, repite notificaciones ni ocupa la pantalla con
 
 Nunca afirmar que una acción ocurrió sin confirmación del sistema destino. Ante un fallo, conservar intención y ofrecer recuperación.
 
+### Estado actual del prototipo
+
+El Copilot opera con datos mock y respuestas simuladas. “Preparar tarea” crea intención dentro de la demostración; no escribe en CRM, correo, campañas ni ERP. La interfaz debe mantener visible esta frontera sin convertir cada respuesta en una advertencia intrusiva.
+
 ## Seguridad y privacidad
 
 Aplicar mínimo privilegio, respetar permisos de la fuente y no revelar información por medio de resúmenes o búsquedas. Datos sensibles no se usan como detalle decorativo. Toda acción automatizada registra actor, contexto, entrada, resultado y momento.

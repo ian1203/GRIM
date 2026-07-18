@@ -2,6 +2,25 @@
 
 Los componentes codifican decisiones de producto, no solo estilos. Todos soportan teclado, foco visible, estados de carga/error/ausencia, temas claro y oscuro, zoom y contenido localizado.
 
+## Biblioteca implementada en esta refactorización
+
+La aplicación se organiza en tres niveles:
+
+- **UI:** `Button`, `Card`, `Badge`, `PageHeader`, `EmptyState`, `LoadingState` y `ErrorState`.
+- **Inteligencia:** `PriorityBadge`, `ConfidenceIndicator`, `ImpactValue`, `InsightCard`, `OpportunityCard`, `CustomerRiskCard`, `ProductSignalCard`, `ForecastScenarioCard`, `ActionCard` y `ConnectorCard`.
+- **Composición:** `AppShell`, `Sidebar` y pantallas. Las pantallas consumen mocks y componentes; no redefinen primitivas.
+
+## Contrato de acciones mock
+
+Los datos actuales son demostrativos y no existe backend ni integración. Los componentes pueden:
+
+- preparar una tarea;
+- marcar una recomendación como revisada localmente;
+- presentar un borrador de contacto;
+- solicitar una evaluación de integración.
+
+No pueden afirmar que enviaron mensajes, crearon órdenes externas, modificaron campañas, conectaron sistemas ni monitorean resultados. Una automatización futura requerirá integración confirmada, permisos, auditoría, recuperación y feedback del sistema destino.
+
 ## Componentes base
 
 ### Card

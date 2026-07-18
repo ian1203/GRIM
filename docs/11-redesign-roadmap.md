@@ -2,6 +2,8 @@
 
 Este roadmap ordena el trabajo por reducción de riesgo e impacto sobre la decisión. No autoriza todavía programación; cada fase comienza con evidencia y termina con un criterio de salida.
 
+> Actualización 17 jul 2026: la UI original de Figma Make fue recuperada. La primera refactorización conserva sus ocho destinos y mocks, y materializa tokens, componentes, light mode, accesibilidad y responsive. Las fases de datos reales, evaluación con usuarios y automatización continúan vigentes.
+
 ## Estrategia
 
 Construir de adentro hacia afuera: primero el contrato de decisión y su ciclo completo; después el briefing, oportunidades y exploración; al final, automatización avanzada. El objetivo inicial no es “tener todas las pantallas”, sino probar que un Director General entiende y resuelve una prioridad mejor con GRIM.

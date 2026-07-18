@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
 import { PriorityBadge } from "./PriorityBadge"
 
-export function CustomerRiskCard({ customer }: { customer: Customer }) {
+export function CustomerRiskCard({
+  customer,
+  showGrimReading = false,
+}: {
+  customer: Customer
+  showGrimReading?: boolean
+}) {
   const [prepared, setPrepared] = useState(false)
   return (
     <Card className="p-5 sm:p-6">
@@ -51,6 +57,22 @@ export function CustomerRiskCard({ customer }: { customer: Customer }) {
           </p>
         </div>
       </div>
+      {showGrimReading && (
+        <aside className="mt-4 rounded-xl border-l-2 border-primary bg-primary-soft/60 px-4 py-3">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">
+            Lectura de GRIM
+          </h3>
+          <p className="mt-2 text-[13px] leading-5 text-text-secondary">
+            Este cliente concentra el mayor riesgo entre las cuentas premium.
+            Su ventana de recuperación se reduce si el contacto se posterga
+            durante la próxima semana.
+          </p>
+          <p className="mt-2 text-[13px] font-semibold leading-5 text-text-primary">
+            Priorizar una conversación personalizada antes de iniciar campañas
+            masivas.
+          </p>
+        </aside>
+      )}
       <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[13px] font-medium text-text-primary">
           {customer.recommendation}

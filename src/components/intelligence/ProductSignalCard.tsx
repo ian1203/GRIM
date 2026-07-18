@@ -3,7 +3,13 @@ import { Badge } from "@/components/ui/Badge"
 import { Card } from "@/components/ui/Card"
 import { Sparkline } from "./Sparkline"
 
-export function ProductSignalCard({ product }: { product: ProductSignal }) {
+export function ProductSignalCard({
+  product,
+  showGrimReading = false,
+}: {
+  product: ProductSignal
+  showGrimReading?: boolean
+}) {
   const config = {
     growing: { label: "En crecimiento", tone: "success" as const },
     risk: { label: "En riesgo", tone: "critical" as const },
@@ -60,6 +66,22 @@ export function ProductSignalCard({ product }: { product: ProductSignal }) {
           </div>
         ))}
       </dl>
+      {showGrimReading && (
+        <aside className="mt-4 rounded-xl border-l-2 border-primary bg-primary-soft/60 px-4 py-3">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">
+            Lectura de GRIM
+          </h3>
+          <p className="mt-2 text-[13px] leading-5 text-text-secondary">
+            La caída de velocidad coincide con presión competitiva y reducción
+            de margen, por lo que parece un cambio estructural y no una
+            variación temporal.
+          </p>
+          <p className="mt-2 text-[13px] font-semibold leading-5 text-text-primary">
+            Validar precio y propuesta de valor antes de aumentar inversión
+            comercial o inventario.
+          </p>
+        </aside>
+      )}
       <p className="mt-4 text-[13px] text-text-secondary">
         <strong className="text-text-primary">Recomendación:</strong>{" "}
         {product.recommendation}

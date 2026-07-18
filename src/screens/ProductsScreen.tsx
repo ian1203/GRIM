@@ -2,7 +2,6 @@ import { useState } from "react"
 import { PRODUCTS } from "@/data/mockData"
 import type { ProductStatus } from "@/types"
 import { ProductSignalCard } from "@/components/intelligence/ProductSignalCard"
-import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
 import { PageHeader } from "@/components/ui/PageHeader"
 interface ProductFilter {
   label: string
@@ -29,12 +28,6 @@ export function ProductsScreen() {
         title="Señales de producto"
         description="Productos que requieren una decisión, no el catálogo completo."
       />
-      <GrimInterpretation priority="Alta">
-        {[
-          "Producto X muestra señales compatibles con presión competitiva, no solo con una variación temporal.",
-          "GRIM recomienda validar la estrategia de precio antes de aumentar inversión comercial o inventario.",
-        ]}
-      </GrimInterpretation>
       <div className="mb-6 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap">
         {filters.map((item) => (
           <button
@@ -53,7 +46,11 @@ export function ProductsScreen() {
       </div>
       <div className="space-y-3">
         {items.map((item) => (
-          <ProductSignalCard key={item.id} product={item} />
+          <ProductSignalCard
+            key={item.id}
+            product={item}
+            showGrimReading={item.id === "product-x"}
+          />
         ))}
       </div>
     </div>

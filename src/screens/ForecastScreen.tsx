@@ -22,9 +22,9 @@ export function ForecastScreen() {
       />
       <GrimInterpretation priority="Alta">
         {[
-          "El escenario esperado asume continuidad en la demanda y una recuperación parcial de las cuentas detenidas.",
-          "La mayor incertidumbre proviene de Producto X y de la disponibilidad de inventario en Hogar.",
-          "Preparar la recuperación de clientes y validar reabastecimiento son las acciones con mayor capacidad de mejorar el resultado.",
+          "El escenario esperado supone continuidad en la demanda y recuperación parcial de las cuentas detenidas.",
+          "La principal incertidumbre sigue siendo Producto X y la disponibilidad de inventario en Hogar.",
+          "Recuperar clientes y validar reabastecimiento son las decisiones con mayor capacidad de mejorar el resultado.",
         ]}
       </GrimInterpretation>
       <div className="grid gap-3 md:grid-cols-3">

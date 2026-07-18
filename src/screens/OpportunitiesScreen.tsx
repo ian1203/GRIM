@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { OPPORTUNITIES } from "@/data/mockData"
 import { OpportunityCard } from "@/components/intelligence/OpportunityCard"
+import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
 import { PageHeader } from "@/components/ui/PageHeader"
 
 const filters = [
@@ -24,6 +25,13 @@ export function OpportunitiesScreen() {
         title="Valor que merece una decisión"
         description={`${OPPORTUNITIES.length} oportunidades demostrativas ordenadas por impacto esperado.`}
       />
+      <GrimInterpretation priority="Alta">
+        {[
+          "La oportunidad superior aparece primero porque combina valor recuperable, una ventana de acción corta y evidencia consistente.",
+          "Postergarla reduce la capacidad de recuperar relaciones comerciales antes de ampliar esfuerzos en otros frentes.",
+          "GRIM recomienda preparar primero la reactivación de clientes de alto valor.",
+        ]}
+      </GrimInterpretation>
       <div className="mb-6 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap">
         {filters.map((item) => (
           <button

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { ACTIONS } from "@/data/mockData"
 import { ActionCard } from "@/components/intelligence/ActionCard"
+import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
 import { PageHeader } from "@/components/ui/PageHeader"
 
 export function ActionsScreen() {
@@ -27,6 +28,12 @@ export function ActionsScreen() {
           </>
         }
       />
+      <GrimInterpretation priority="Crítica">
+        {[
+          "Las acciones aparecen según urgencia, impacto económico y confianza de la señal.",
+          "GRIM recomienda atender primero los riesgos que pierden valor si se postergan y después preparar las oportunidades de crecimiento.",
+        ]}
+      </GrimInterpretation>
       <div className="space-y-3">
         {ACTIONS.map((action) => (
           <ActionCard

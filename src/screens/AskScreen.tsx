@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
 import { LoadingState } from "@/components/ui/LoadingState"
 import { ConfidenceIndicator } from "@/components/intelligence/ConfidenceIndicator"
+import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
 import { ImpactValue } from "@/components/intelligence/ImpactValue"
 
 const suggestions = [
@@ -102,10 +103,16 @@ export function AskScreen() {
             Preguntar
           </h1>
           <p className="mt-2 text-[15px] text-text-secondary">
-            Comprende una señal, contrasta evidencia y prepara el siguiente
-            paso.
+            Profundiza en una decisión específica cuando el contexto preparado
+            por GRIM no sea suficiente.
           </p>
         </header>
+        <GrimInterpretation priority="Contextual">
+          {[
+            "GRIM ya interpreta y prioriza información en cada pantalla del producto.",
+            "Usa este espacio para contrastar una hipótesis, explorar evidencia o convertir una inquietud propia en una decisión.",
+          ]}
+        </GrimInterpretation>
         <div className="space-y-5">
           {messages.map((message) =>
             message.role === "user" ? (

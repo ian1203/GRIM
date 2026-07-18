@@ -2,6 +2,7 @@ import { Cable, FileSearch } from "lucide-react"
 import { useState } from "react"
 import { CONNECTORS } from "@/data/mockData"
 import { ConnectorCard } from "@/components/intelligence/ConnectorCard"
+import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
 import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
 import { PageHeader } from "@/components/ui/PageHeader"
@@ -17,6 +18,13 @@ export function ConnectorsScreen() {
         title="Fuentes de contexto"
         description="Estado demostrativo de las fuentes que pueden alimentar las recomendaciones de GRIM."
       />
+      <GrimInterpretation priority="Contextual">
+        {[
+          "Ventas y pagos permiten medir impacto; inventario explica si una oportunidad puede atenderse.",
+          "El contexto de clientes mejora la prioridad y precisión de cada recomendación.",
+          "GRIM recomienda revisar primero la vigencia de las fuentes que sostienen decisiones críticas.",
+        ]}
+      </GrimInterpretation>
       <section aria-labelledby="connected-title">
         <h2 id="connected-title" className="mb-3 text-2xl font-semibold">
           Conectados

@@ -1,6 +1,7 @@
 import { CalendarClock, ShieldCheck } from "lucide-react"
 import { FORECAST_SCENARIOS } from "@/data/mockData"
 import { ForecastScenarioCard } from "@/components/intelligence/ForecastScenarioCard"
+import { GrimInterpretation } from "@/components/intelligence/GrimInterpretation"
 import { RecommendationCard } from "@/components/intelligence/RecommendationCard"
 import { Card } from "@/components/ui/Card"
 import { PageHeader } from "@/components/ui/PageHeader"
@@ -19,6 +20,13 @@ export function ForecastScreen() {
           </span>
         }
       />
+      <GrimInterpretation priority="Alta">
+        {[
+          "El escenario esperado asume continuidad en la demanda y una recuperación parcial de las cuentas detenidas.",
+          "La mayor incertidumbre proviene de Producto X y de la disponibilidad de inventario en Hogar.",
+          "Preparar la recuperación de clientes y validar reabastecimiento son las acciones con mayor capacidad de mejorar el resultado.",
+        ]}
+      </GrimInterpretation>
       <div className="grid gap-3 md:grid-cols-3">
         {FORECAST_SCENARIOS.map((scenario) => (
           <ForecastScenarioCard key={scenario.id} scenario={scenario} />
